@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Movie Recommendations{% endblock %}
+
+{% block body %}
+<div class="top">
+    <div class="title">MovieMatch</div>
+    <a href="{{ url_for('page2') }}" class="button">Recommend a Movie</a>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</div>
+<div class="bottom">
+    <h2>Popular Movies</h2>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/movie1.png') }}" alt="Movie 1">
+        <img src="{{ url_for('static', filename='images/movie2.png') }}" alt="Movie 2">
+        <img src="{{ url_for('static', filename='images/movie3.png') }}" alt="Movie 3">
+        <img src="{{ url_for('static', filename='images/movie4.png') }}" alt="Movie 4">
+        <img src="{{ url_for('static', filename='images/movie5.jpg') }}" alt="Movie 5">
+        <img src="{{ url_for('static', filename='images/movie6.png') }}" alt="Movie 6">
+    </div>
+</div>
+{% endblock %}

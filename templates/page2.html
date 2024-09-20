@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Movie Recommendations{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Movie Recommendation</h1>
+    <form class="search-form" action="{{ url_for('get_recommendations') }}" method="post">
+        <input type="text" name="movie_name" placeholder="Enter the name of a movie" class="search-input" required>
+        <button type="submit" class="search-button">
+            <img src="{{ url_for('static', filename='images/image.png') }}" alt="Search Icon" class="search-icon">
+        </button>
+    </form>
+
+    {% if recommendations %}
+        <h2>Recommendations for "{{ movie_name }}":</h2>
+        <ul class="recommendations">
+            {% for movie in recommendations %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+{% endblock %}
